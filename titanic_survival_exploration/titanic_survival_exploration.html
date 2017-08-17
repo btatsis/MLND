@@ -13226,7 +13226,7 @@ Make sure to keep track of the various features and conditions you tried before 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[50]:</div>
+<div class="prompt input_prompt">In&nbsp;[61]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">predictions_3</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
@@ -13266,7 +13266,7 @@ Make sure to keep track of the various features and conditions you tried before 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[51]:</div>
+<div class="prompt input_prompt">In&nbsp;[62]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">outcomes</span><span class="p">,</span> <span class="n">predictions</span><span class="p">)</span>
@@ -13286,7 +13286,7 @@ Make sure to keep track of the various features and conditions you tried before 
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Predictions have an accuracy of 80.36%.
+<pre>Predictions have an accuracy of 80.58%.
 </pre>
 </div>
 </div>
@@ -13299,8 +13299,8 @@ Make sure to keep track of the various features and conditions you tried before 
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Answer</strong>: Predictions have an accuracy of 80.02%.
-I examined at most possible combinations of the features and found out that the features i) <strong>SibSp</strong>: Number of siblings and spouses of the passenger aboard and ii) <strong>Parch</strong>: Number of parents and children of the passenger aboard are the most informative. Afterwards, I tried to tweak the prediction result by refining features like Sex, Age, and Fare. The condition I added was <strong>passenger.SibSp &lt; 3</strong></p>
+<p><strong>Answer</strong>: Predictions have an accuracy of 80.58%.
+I examined at most possible combinations of the features and found out that the features i) <strong>SibSp</strong>: Number of siblings and spouses of the passenger aboard, ii) <strong>Parch</strong>: Number of parents and children of the passenger aboard, and iii) <strong>Fare</strong>: Fare paid by the passenger are the most informative. Afterwards, I tried to improve the prediction score by refining the decision criteria for  features like Sex, Age, SibSp and Fare. The conditions I added were <strong>passenger.SibSp &lt; 3</strong> and <strong>passenger.Fare &gt; 70</strong></p>
 
 </div>
 </div>
@@ -13320,7 +13320,7 @@ I examined at most possible combinations of the features and found out that the 
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Answer</strong>: Supervised learning could be helpful in <em>drug discovery</em>. A large dataset containing the 2D structure of pharmaceutical compounds and their biological activity could be used to train a ML model. The ML model could be used to predict the biological activity of new idea compounds. That could enhance and speed up drug discovery. The features that could be used in this scenario are i) structural fingerprints ii) physicochemical properties (solubility, heavy atoms count, polar surface area, number of rings found in the molecule, molecular weight).</p>
+<p><strong>Answer</strong>: Supervised learning could be helpful in <em>drug discovery</em>. A large dataset containing the 2D structure of pharmaceutical compounds and their biological activity could be used to train a ML model. The ML model could be used to predict the biological activity of new idea compounds. That could enhance and speed up drug discovery. In this scenario, the following features could be used: i) structural fingerprints and ii) physicochemical properties (solubility, heavy atoms count, polar surface area, number of rings found in the molecule, molecular weight).</p>
 
 </div>
 </div>
