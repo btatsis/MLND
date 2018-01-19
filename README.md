@@ -1,2 +1,2 @@
 # MLND
-A repository for projects in MLND (Udacity)
+A repository for MLND projects (Udacity)
