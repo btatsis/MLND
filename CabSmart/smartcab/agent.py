@@ -48,6 +48,7 @@ class LearningAgent(Agent):
             # self.epsilon = self.epsilon - 0.05
             self.t += 1.0
             self.epsilon = 1.0/(self.t**2)
+            #self.epsilon = math.fabs(math.cos(self.alpha*self.t))
 
         return None
 
@@ -95,7 +96,9 @@ class LearningAgent(Agent):
         maxQ = -1010.0
         for action in self.Q[state]:
             if maxQ < self.Q[state][action]:
-                maxQ = self.Q[state][action]
+                #    maxQ = self.Q[state][action]
+                # Reviewer's comment
+                maxQ = max(self.Q[state].values())
         return maxQ
 
     def createQ(self, state):
@@ -209,7 +212,7 @@ def run():
     # Flags:
     #   tolerance  - epsilon tolerance before beginning testing, default is 0.05 
     #   n_test     - discrete number of testing trials to perform, default is 0
-    sim.run(n_test=50, tolerance=0.0001)
+    sim.run(n_test=10, tolerance=0.0001)
 
 
 if __name__ == '__main__':
