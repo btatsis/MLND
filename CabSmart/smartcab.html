@@ -21078,38 +21078,52 @@ My example of an optimal policy would be for a green traffic light, the waypoint
 <tbody>
 <tr>
 <td style="text-align:left">1</td>
-<td style="text-align:center">{'forward', 'green', None, None}</td>
+<td style="text-align:center">{'forward', 'green', forward, forward}</td>
 <td style="text-align:right">forward</td>
 <td style="text-align:center">Optimal</td>
 </tr>
 <tr>
 <td style="text-align:left">2</td>
-<td style="text-align:center">{'forward', 'green', None, None}</td>
+<td style="text-align:center">{'forward', 'green', forward, forward}</td>
 <td style="text-align:right">None</td>
 <td style="text-align:center">Incorrect</td>
 </tr>
 <tr>
 <td style="text-align:left">3</td>
-<td style="text-align:center">{'forward', 'green', None, None}</td>
+<td style="text-align:center">{'forward', 'green', forward, forward}</td>
 <td style="text-align:right">left</td>
 <td style="text-align:center">Suboptimal</td>
 </tr>
 <tr>
 <td style="text-align:left">4</td>
-<td style="text-align:center">{'forward', 'green', None, None}</td>
+<td style="text-align:center">{'forward', 'green', forward, forward}</td>
 <td style="text-align:right">right</td>
 <td style="text-align:center">Suboptimal</td>
 </tr>
 </tbody>
 </table>
-<p>In sim_improved-learning.txt the policy for the aforementioned state and the result of the re-enforcement training are the following:<br>
-<code>forward_green_None_None
- -- forward : 2.29
+<p>In the <em>sim_improved-learning.txt</em> file the policy for the aforementioned state and the result of the reinforcement training is the following:<br>
+<code>forward_green_forward_forward
+ -- forward : 2.26
  -- left : 0.00
- -- right : -0.07
+ -- right : 0.00
  -- None : 0.00</code></p>
-<p>The action with the highest value of 2.29 for this policy forward, matches that of the correct action in the optimal policy. I notice that the right turn is penalized by the learning agent. I would expect that the action None would get this negative score.<br>
-That could be because the final optimized Q-Learning agent never reached this state (right turn) on a green light and the predetermined direction was forward. Probably, without searching the full Q-Learning feature space and learning all the negative consequences from the environment, the final Q-Learning agent may not be as optimized as we would like and may actually fail at some tests. In contrast to moving forward which has rewarded (2.29).</p>
+<p>The action with the highest value of 2.26 for this policy forward, matches that of the correct action in the optimal policy. I noticed that the other actions haven't got any reward. I would have expected that the action None would get a negative score.<br>
+That could be because the final optimized Q-Learning agent never reached this state (None) on a green light and the predetermined direction was forward. Probably, without searching the full Q-Learning feature space and learning all the negative consequences from the environment, the final Q-Learning agent may not be as optimized as we would like and may actually fail at some tests.</p>
+<p>Another suboptimal policy found in the <em>sim_improved-learning.txt</em> and the result of the reinforcement training is the following:<br>
+<code>forward_green_forward_left
+ -- forward : 0.00
+ -- left : 0.00
+ -- right : 0.74
+ -- None : 0.00</code></p>
+<p>In this state, the agent will choose to turn right which is not the optimal policy. The other three actions have not been awarded. A possible reason could be again  the insufficient sampling of the states' space. This could be also why the agent reliability score got an A instead of A+.</p>
+<p>Another suboptimal policy spotted in the <em>sim_improved-learning.txt</em> log file and its result from the reinforcement training is the following:<br>
+<code>forward_green_forward_None
+ -- forward : 0.00
+ -- left : 0.62
+ -- right : 0.00
+ -- None : 0.00</code></p>
+<p>Furthermore, in this state the final optimized Q-Learning agent would turn left instead of heading forward since that action has the highest Q-value, even though forward is the waypoint in the simulated environment. Right turn, going forward and None action, they have a Q-value of 0.00. This could be an indication that the final Q-Learning agent is not as efficient as it should be.</p>
 
 </div>
 </div>
